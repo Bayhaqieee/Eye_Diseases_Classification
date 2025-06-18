@@ -24,6 +24,8 @@ This project is implemented using the following libraries:
 - `NumPy`
 - `Matplotlib`
 - `tqdm`
+- `LazyPredict` (for model comparison)
+- `scikit-learn` (used indirectly in LazyPredict)
 - `TensorBoard`
 - `os`, `shutil`, `random`, and other Python standard libraries
 
@@ -72,6 +74,22 @@ Download and unzip the dataset into the following structure:
 # Evaluate on validation data using accuracy metrics
 # Visualize predictions and confusion matrix
 ```
+
+---
+
+## 📊 Model Baseline Comparison (Using LazyPredict)
+
+Before switching to CNNs, we evaluated traditional ML models using feature vectors and LazyPredict. Below are some top-performing models:
+
+| Model                         | Accuracy | F1 Score | Time Taken |
+|------------------------------|----------|----------|-------------|
+| **LGBMClassifier**            | 0.70     | 0.69     | 3.28 s      |
+| **PassiveAggressiveClassifier** | 0.68  | 0.67     | 0.32 s      |
+| **XGBClassifier**             | 0.68     | 0.66     | 4.63 s      |
+| **Perceptron**                | 0.68     | 0.67     | 0.16 s      |
+| **DecisionTreeClassifier**    | 0.62     | 0.63     | 0.25 s      |
+
+While some traditional classifiers performed decently, the DenseNet161 CNN model achieved **significantly better generalization and performance**.
 
 ---
 
